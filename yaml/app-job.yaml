@@ -1,0 +1,12 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: my-app-job
+spec:
+  template:
+    spec:
+      containers:
+      - name: my-app-container
+        image: my-app:latest
+        command: ["/bin/sh", "-c", "echo Hello from the Job!"]
+      restartPolicy: Never

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: my-app-pod
+spec:
+  containers:
+  - name: main-app
+    image: my-app:latest
+    ports:
+    - containerPort: 8080
+  - name: sidecar-app
+    image: sidecar-app:latest
+    ports:
+    - containerPort: 9000

@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: my-app-cronjob
+spec:
+  schedule: "*/5 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: my-app-container
+            image: my-app:latest
+            command: ["/bin/sh", "-c", "echo Hello from the CronJob!"]
+          restartPolicy: OnFailure
